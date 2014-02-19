@@ -17,17 +17,17 @@ describe('Patron', function() {
 
 	describe('As a user, I want to recieve a card from the deck', function() {
 		it("Should shuffle cards and return the top card", function() {
-			expect(patron.getCARD()).to.have.property('Rank');
-			expect(patron.getCARD()).to.have.property('Suit');
+			expect(patron("User").getCARD()).to.have.property('Rank');
+			expect(patron("User").getCARD()).to.have.property('Suit');
 		});
 	});
 
 
 	describe("As a dealer, I have special card priveleges.", function() {
 		it("Should return the remaining number of cards", function() {
-			expect(patron.getSIZE()).to.equal(52);
-			expect(patron.getCARD()).to.be.an.object;
-			expect(patron.getSIZE()).to.equal(51);
+			expect(patron("Dealer").getSIZE()).to.equal(52);
+			expect(patron("Dealer").getCARD()).to.be.an.object;
+			expect(patron("Dealer").getSIZE()).to.equal(51);
 		});
 	})
 });
